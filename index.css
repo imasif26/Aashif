@@ -805,29 +805,53 @@ footer {
 }
 
 
-/* Scroll Animation Upgrades */
+/* Horizontal Slider Layout & Bottom Cyan Scrollbar Track */
 .cert-grid, .testimonials-grid {
     display: flex !important;
-    overflow-x: auto;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
     scroll-snap-type: x mandatory;
     gap: 2rem;
     padding-bottom: 2rem;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 242, 254, 0.4) rgba(255, 255, 255, 0.05);
 }
 
-.cert-grid::-webkit-scrollbar, .testimonials-grid::-webkit-scrollbar {
-    height: 8px;
+/* Explicitly hide vertical scrollbar in Chrome/Safari/Edge */
+.cert-grid::-webkit-scrollbar:vertical, 
+.testimonials-grid::-webkit-scrollbar:vertical {
+    width: 0px !important;
+    display: none !important;
 }
-.cert-grid::-webkit-scrollbar-track, .testimonials-grid::-webkit-scrollbar-track {
+
+/* Horizontal scrollbar styling for Chrome/Safari/Edge */
+.cert-grid::-webkit-scrollbar:horizontal, 
+.testimonials-grid::-webkit-scrollbar:horizontal {
+    height: 8px !important;
+}
+
+.cert-grid::-webkit-scrollbar, 
+.testimonials-grid::-webkit-scrollbar {
+    height: 8px;
+    width: 0px;
+}
+
+.cert-grid::-webkit-scrollbar-track, 
+.testimonials-grid::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
 }
-.cert-grid::-webkit-scrollbar-thumb, .testimonials-grid::-webkit-scrollbar-thumb {
-    background: rgba(0, 242, 254, 0.3);
+
+.cert-grid::-webkit-scrollbar-thumb, 
+.testimonials-grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 242, 254, 0.4);
     border-radius: 10px;
 }
-.cert-grid::-webkit-scrollbar-thumb:hover, .testimonials-grid::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 242, 254, 0.6);
+
+.cert-grid::-webkit-scrollbar-thumb:hover, 
+.testimonials-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 242, 254, 0.7);
 }
 
 .cert-card, .testimonial-card {

@@ -163,6 +163,7 @@ h1, h2, h3, h4, .logo {
 .logo {
     font-size: 1.2rem;
     letter-spacing: -0.5px;
+    word-spacing: 4px;
     color: var(--text-primary);
     margin-right: 2rem;
 }

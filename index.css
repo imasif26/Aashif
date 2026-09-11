@@ -580,7 +580,9 @@ footer {
     /* Mobile Hero */
     .hero {
         height: auto;
-        min-height: auto;
+        min-height: 100vh;
+        min-height: 100svh;
+        justify-content: flex-start;
         padding-top: 7rem;
         padding-bottom: 4rem;
     }
@@ -700,6 +702,12 @@ footer {
 }
 .glass-panel:hover .cs-image {
     transform: scale(1.05);
+}
+
+@media (max-width: 899px) {
+    .cs-content {
+        margin-bottom: 2rem;
+    }
 }
 
 @media (min-width: 900px) {

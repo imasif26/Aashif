@@ -125,24 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 8. Typewriter Effect for Hero
-    const typeWriterEl = document.querySelector('.typewriter');
-    if (typeWriterEl) {
-        const text = "& Growth Systems Architect";
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                typeWriterEl.innerHTML = text.substring(0, i+1);
-                i++;
-                setTimeout(typeWriter, 50);
-            } else {
-                // Done typing, keep cursor blinking
-            }
-        }
-        setTimeout(typeWriter, 1200); // Start after fade up finishes
-    }
-
-    // 9. Mobile Navigation Toggle
+    // 8. Mobile Navigation Toggle
     const mobileNavToggle = document.getElementById('mobileNavToggle');
     const navMenu = document.getElementById('navMenu');
     if (mobileNavToggle && navMenu) {

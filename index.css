@@ -906,22 +906,6 @@ nav a.btn-primary {
     50% { opacity: 0; }
 }
 
-.hero-title, .hero-subtitle, .hero-actions {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s ease forwards;
-}
-.hero-title { animation-delay: 0.1s; }
-.hero-subtitle { animation-delay: 0.3s; }
-.hero-actions { animation-delay: 0.5s; }
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* ==========================================================================
    Bespoke Pure CSS/SVG Interactive UI Dashboards for Case Studies
    ========================================================================== */

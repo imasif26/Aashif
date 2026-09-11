@@ -248,6 +248,7 @@ main {
     align-items: center;
     text-align: center;
     padding-top: 80px; /* Account for navbar */
+    padding-bottom: 5rem;
 }
 
 .hero h1 {
@@ -578,6 +579,7 @@ footer {
 
     /* Mobile Hero */
     .hero {
+        height: auto;
         min-height: auto;
         padding-top: 7rem;
         padding-bottom: 4rem;
@@ -896,16 +898,6 @@ nav a.btn-primary {
     50% { opacity: 0; }
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-}
 .hero-title, .hero-subtitle, .hero-actions {
     opacity: 0;
     transform: translateY(20px);

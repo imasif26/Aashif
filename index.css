@@ -15,8 +15,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Hide default cursor to use custom one */
-    cursor: none;
 }
 
 body {
@@ -26,6 +24,21 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    cursor: url('cursor-passive.svg') 16 16, crosshair;
+}
+
+/* Reticle cursor system: CSS-only, no JS position tracking (keeps INP clean) */
+a, button, .btn-primary, .btn-secondary, .prod-btn,
+.case-study-card, .mobile-nav-toggle {
+    cursor: url('cursor-active.svg') 16 16, pointer;
+}
+
+.wf-execution-log {
+    cursor: url('cursor-readonly.svg') 16 16, default;
+}
+
+input, textarea {
+    cursor: text;
 }
 
 /* Typography */
@@ -60,22 +73,6 @@ h1, h2, h3, h4, .logo {
 @keyframes rotateBg {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-/* Custom Cursor */
-.cursor-glow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(0,0,0,0) 50%);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    mix-blend-mode: screen;
-    transition: width 0.3s, height 0.3s;
 }
 
 /* Spotlight Glass Panels */
@@ -526,13 +523,6 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    * {
-        cursor: auto; /* Disable custom cursor on mobile */
-    }
-    .cursor-glow {
-        display: none;
-    }
-    
     /* Mobile Header & Floating Navbar */
     .navbar {
         width: 92%;

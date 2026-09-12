@@ -1,26 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Custom Cursor Follower
-    const cursor = document.querySelector('.cursor-glow');
-    if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-            // Use requestAnimationFrame for smooth performance
-            requestAnimationFrame(() => {
-                cursor.style.left = `${e.clientX}px`;
-                cursor.style.top = `${e.clientY}px`;
-            });
-        });
-        
-        // Hide cursor when leaving window
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-        });
-        document.addEventListener('mouseenter', () => {
-            cursor.style.opacity = '1';
-        });
-    }
 
-    // 2. Spotlight Hover Effect for Glass Panels
+    // 1. Spotlight Hover Effect for Glass Panels
     const panels = document.querySelectorAll('.glass-panel');
     panels.forEach(panel => {
         panel.addEventListener('mousemove', (e) => {
@@ -33,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Scroll Reveal Animation using IntersectionObserver
+    // 2. Scroll Reveal Animation using IntersectionObserver
     const revealElements = document.querySelectorAll('.reveal');
     const observerOptions = {
         threshold: 0.1,
@@ -60,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => observer.observe(el));
 
-    // 4. Animated Number Counters
+    // 3. Animated Number Counters
     const startCounters = (counters) => {
         counters.forEach(counter => {
             counter.innerText = '0';
@@ -85,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // 5. Smooth scrolling for anchor links
+    // 4. Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -100,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    // 6. Parallax Background Effect
+    // 5. Parallax Background Effect
     const glowBg = document.querySelector('.glow-bg');
     if (glowBg) {
         window.addEventListener('scroll', () => {
@@ -111,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Staggered Reveals for Grids
+    // 6. Staggered Reveals for Grids
     const staggerGrids = document.querySelectorAll('.grid-3, .cert-grid, .testimonials-grid');
     staggerGrids.forEach(grid => {
         const children = Array.from(grid.children);
@@ -125,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 8. Mobile Navigation Toggle
+    // 7. Mobile Navigation Toggle
     const mobileNavToggle = document.getElementById('mobileNavToggle');
     const navMenu = document.getElementById('navMenu');
     if (mobileNavToggle && navMenu) {

@@ -800,6 +800,11 @@ footer {
     background: linear-gradient(135deg, var(--accent-teal), var(--accent-cyan));
     box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
     position: relative;
+    transition: box-shadow 0.4s ease;
+}
+
+.avatar-container:hover {
+    box-shadow: 0 0 60px rgba(0, 242, 254, 0.5);
 }
 .avatar-image {
     width: 100%;
@@ -808,6 +813,26 @@ footer {
     border-radius: 50%;
     border: 5px solid var(--bg-color);
 }
+
+.avatar-linkedin-overlay {
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-teal);
+    font-size: 2.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.avatar-container:hover .avatar-linkedin-overlay {
+    opacity: 1;
+}
+
 .about-content h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;

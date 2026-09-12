@@ -1,6 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Spotlight Hover Effect for Glass Panels
+    // 1. Cursor Ring (decorative overlay only — never hides the native cursor)
+    const cursorRing = document.querySelector('.cursor-ring');
+    if (cursorRing && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursorRing.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+                cursorRing.classList.add('is-visible');
+            });
+        });
+
+        document.addEventListener('mouseleave', () => cursorRing.classList.remove('is-visible'));
+
+        const activeTargets = document.querySelectorAll(
+            'a, button, .btn-primary, .btn-secondary, .prod-btn, .case-study-card, .mobile-nav-toggle'
+        );
+        activeTargets.forEach(el => {
+            el.addEventListener('mouseenter', () => cursorRing.classList.add('is-active'));
+            el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-active'));
+        });
+
+        const readonlyTarget = document.querySelector('.wf-execution-log');
+        if (readonlyTarget) {
+            readonlyTarget.addEventListener('mouseenter', () => cursorRing.classList.add('is-readonly'));
+            readonlyTarget.addEventListener('mouseleave', () => cursorRing.classList.remove('is-readonly'));
+        }
+    }
+
+    // 2. Spotlight Hover Effect for Glass Panels
     const panels = document.querySelectorAll('.glass-panel');
     panels.forEach(panel => {
         panel.addEventListener('mousemove', (e) => {
@@ -13,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Scroll Reveal Animation using IntersectionObserver
+    // 3. Scroll Reveal Animation using IntersectionObserver
     const revealElements = document.querySelectorAll('.reveal');
     const observerOptions = {
         threshold: 0.1,
@@ -40,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => observer.observe(el));
 
-    // 3. Animated Number Counters
+    // 4. Animated Number Counters
     const startCounters = (counters) => {
         counters.forEach(counter => {
             counter.innerText = '0';
@@ -65,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // 4. Smooth scrolling for anchor links
+    // 5. Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -80,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    // 5. Parallax Background Effect
+    // 6. Parallax Background Effect
     const glowBg = document.querySelector('.glow-bg');
     if (glowBg) {
         window.addEventListener('scroll', () => {
@@ -91,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Staggered Reveals for Grids
+    // 7. Staggered Reveals for Grids
     const staggerGrids = document.querySelectorAll('.grid-3, .cert-grid, .testimonials-grid');
     staggerGrids.forEach(grid => {
         const children = Array.from(grid.children);
@@ -105,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. Mobile Navigation Toggle
+    // 8. Mobile Navigation Toggle
     const mobileNavToggle = document.getElementById('mobileNavToggle');
     const navMenu = document.getElementById('navMenu');
     if (mobileNavToggle && navMenu) {

@@ -266,6 +266,10 @@ nav a:hover:not(.btn-primary) {
 }
 
 /* Layout */
+section[id] {
+    scroll-margin-top: 120px;
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -789,6 +793,9 @@ footer {
 @media (min-width: 900px) {
     .about-layout {
         grid-template-columns: 1fr 2fr;
+    }
+    .avatar-container {
+        margin: 0;
     }
 }
 .avatar-container {
